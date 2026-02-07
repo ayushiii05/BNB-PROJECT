@@ -201,3 +201,46 @@ body {
     padding: 2.5rem;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    /* Filters - Horizontal Scroll */
+    #filters {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    #filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter {
+        margin-right: 2rem;
+        min-width: 4rem;
+        /* Ensure icons don't shrink */
+    }
+
+    .tax-toggle {
+        display: none !important;
+        /* Hide tax toggle on mobile to save space or move it */
+    }
+
+    /* Form Inputs */
+    .show-img {
+        height: 40vh !important;
+    }
+
+    .listing-title {
+        font-size: 1.8rem;
+    }
+}
