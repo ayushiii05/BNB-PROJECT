@@ -309,28 +309,32 @@ app.use((err, req, res, next) => {
 });
 
 
-const server = app.listen(8080, () => {
-    console.log("server is running on port 8080");
-}).on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-        console.log('Port 8080 is busy, trying to close existing connection...');
-        require('child_process').exec('taskkill /F /IM node.exe', (err, stdout, stderr) => {
-            if (err) {
-                console.error('Error killing process:', err);
-                return;
-            }
-            console.log('Previous process killed, restarting server...');
-            server.listen(8080);
-        });
-    }
-});
-
-// Add graceful shutdown
-process.on('SIGTERM', () => {
-    server.close(() => {
-        console.log('Server closed');
-        process.exit(0);
+if (require.main === module) {
+    const server = app.listen(8080, () => {
+        console.log("server is running on port 8080");
+    }).on('error', (err) => {
+        if (err.code === 'EADDRINUSE') {
+            console.log('Port 8080 is busy, trying to close existing connection...');
+            require('child_process').exec('taskkill /F /IM node.exe', (err, stdout, stderr) => {
+                if (err) {
+                    console.error('Error killing process:', err);
+                    return;
+                }
+                console.log('Previous process killed, restarting server...');
+                server.listen(8080);
+            });
+        }
     });
-});
+
+    // Add graceful shutdown
+    process.on('SIGTERM', () => {
+        server.close(() => {
+            console.log('Server closed');
+            process.exit(0);
+        });
+    });
+}
+
+
 
 module.exports = app;
