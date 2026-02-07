@@ -1,24 +1,27 @@
-
-body{
+body {
     font-family: "plus jakarta Sans", sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
-.container{
+
+.container {
     flex: 1;
 
 }
-.navbar{
+
+.navbar {
     height: 5rem;
     background-color: white;
 }
-.fa-compass{
+
+.fa-compass {
     color: #fe424d;
     font-size: 2rem;
 }
+
 .nav-link {
-    color:#222222 !important;
+    color: #222222 !important;
 }
 
 /*footer*/
@@ -26,13 +29,17 @@ body{
     color: #222222;
     text-decoration: none;
 }
+
 .f-info-links a:hover {
     text-decoration: underline;
 }
+
 .f-info-links {
     width: 100%;
 }
-.f-info-socials, .f-info-brand {
+
+.f-info-socials,
+.f-info-brand {
     width: 100%;
     display: flex;
     align-items: center;
@@ -40,10 +47,12 @@ body{
     font-size: 1.5rem;
     margin-right: 1rem;
 }
+
 .f-info-socials i {
     font-size: 1.2rem;
     margin-right: 1rem;
 }
+
 .f-info {
     display: flex;
     text-align: center;
@@ -56,50 +65,139 @@ body{
 
 /*cards*/
 .listing-card {
-    border:none!important;
+    border: none !important;
     margin-bottom: 2rem;
-    
-}
-.card-img-top {
-    border-radius: 1rem!important;
-    width: 100%;
-  
-    object-fit: cover!important;
-}
-.card-body {
-    padding: 0!important;
 
 }
-.card-text p{
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100%;
+
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 0 !important;
+
+}
+
+.card-text p {
     font-weight: 400;
 }
-.listing-link{
+
+.listing-link {
     text-decoration: none;
 }
+
 /*card hover*/
 .card-img-overlay {
     opacity: 0;
 }
+
 .card-img-overlay:hover {
     opacity: 0.3;
     background-color: white;
 }
+
 .add-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
+
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
 
-.show-img{
+.show-img {
     height: 35vh;
 }
-.btns{
+
+.btns {
     display: flex;
 }
-.show-card{
+
+.show-card {
     padding-left: 0;
     padding-right: 0;
+}
+
+
+/*Map */
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+/* Professional Listing Details Redesign */
+.listing-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.listing-location {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+.hero-image-container {
+    margin-bottom: 2rem;
+}
+
+.show-img {
+    height: 55vh !important;
+    object-fit: cover;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.listing-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.price-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.review-card {
+    border: 1px solid #f0f0f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background-color: #fff;
+    transition: box-shadow 0.2s;
+}
+
+.review-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.booking-widget h4 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.booking-widget {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }

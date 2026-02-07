@@ -1,46 +1,98 @@
 <% layout("/layouts/boilerplate") %>
-<body>
-    <div class="row offset-2 mt-3 ">
-        <div class="col-8">
-    <h3>Create a New Listing</h3>
 
-    <form method= "POST" action = "/listings/">
-        <div>
-        <lable for="title" class="form-label">title</lable>
-        <input name="listing[title]" placeholder="enter title" type="text" class="form-control" />
+    <body>
+        <div class="row mt-5">
+            <div class="col-8 offset-2">
+                <div class="card shadow-sm border-0 listing-card">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4 fw-bold text-center">Create a New Listing</h3>
+
+                        <form method="POST" action="/listings" novalidate class="needs-validation"
+                            enctype="multipart/form-data">
+
+                            <div class="mb-4">
+                                <label for="title" class="form-label fw-bold">Title</label>
+                                <input name="title" placeholder="Enter a catchy title" type="text"
+                                    class="form-control p-3" required />
+                                <div class="invalid-feedback">Please enter a valid title</div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="description" class="form-label fw-bold">Description</label>
+                                <textarea name="description" placeholder="Describe your place..."
+                                    class="form-control p-3" rows="4" required></textarea>
+                                <div class="invalid-feedback">Please enter a short description</div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="image" class="form-label fw-bold">Image</label>
+                                <div class="input-group">
+                                    <input name="image" placeholder="Enter image URL" type="text"
+                                        class="form-control p-3" />
+                                    <input type="file" name="imageFile" id="imageUpload" class="d-none"
+                                        accept="image/*">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        onclick="document.getElementById('imageUpload').click()"
+                                        title="Upload from gallery">
+                                        <i class="fa-regular fa-image fa-lg"></i>
+                                    </button>
+                                </div>
+                                <div id="fileName" class="form-text text-success fw-bold"></div>
+                                <div class="invalid-feedback">Please enter a valid image URL or upload a file</div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-4 col-md-4">
+                                    <label for="price" class="form-label fw-bold">Price</label>
+                                    <input name="price" placeholder="1200" type="number" class="form-control p-3"
+                                        required />
+                                    <div class="invalid-feedback">Price should be valid</div>
+                                </div>
+                                <div class="mb-4 col-md-8">
+                                    <label for="location" class="form-label fw-bold">Location</label>
+                                    <input name="location" placeholder="Jaipur, Rajasthan" type="text"
+                                        class="form-control p-3" required />
+                                    <div class="invalid-feedback">Location should be valid</div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-4 col-md-4">
+                                    <label for="category" class="form-label fw-bold">Category</label>
+                                    <select name="category" class="form-select p-3" required>
+                                        <% const categories=["Trending", "Rooms" , "Iconic cities" , "Mountains"
+                                            , "Castles" , "Amazing pools" , "Camping" , "Farms" , "Arctic" , "Domes"
+                                            , "Houseboats" ]; %>
+                                            <% for(let category of categories) { %>
+                                                <option value="<%= category %>">
+                                                    <%= category %>
+                                                </option>
+                                                <% } %>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a category</div>
+                                </div>
+                                <div class="mb-4 col-md-8">
+                                    <label for="country" class="form-label fw-bold">Country</label>
+                                    <input name="country" placeholder="India" type="text" class="form-control p-3"
+                                        required />
+                                    <div class="invalid-feedback">Country name should be valid</div>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2 mt-4">
+                                <button class="btn btn-dark add-btn py-3 fw-bold" style="font-size: 1.1rem;">Create
+                                    Listing</button>
+                            </div>
+                        </form>
+                        <script>
+                            document.getElementById('imageUpload').addEventListener('change', function () {
+                                if (this.files && this.files[0]) {
+                                    document.getElementById('fileName').textContent = "Selected: " + this.files[0].name;
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
         </div>
-    
-    <div class="mb-3">
-        <lable for="description" class="form-label">description</lable>
-    <textarea name="listing[description]" placeholder="enter descrpition" class="form-control" >
-         </textarea>
-
-    </div>
-    
-    <div class="mb-3">
-        <lable for="image" class="form-label">image-link</lable>
-
-        <input name="listing[image]" placeholder="enter image URL/link" type="text" class="form-control"/>
-    </div>
-    
-    <div class="row">
-    <div class="mb-3 col-md-4">
-        <lable for="price" class="form-label">price</lable>
-    <input name="listing[price]" placeholder="12000" type="number" class="form-control" />
-    </div>
-    
-    <div class="mb-3 col-md-8">
-        <lable for="location" class="form-label">loaction</lable>
-    <input name="listing[location]" placeholder="jaipur,Rajasthan" type="text" class="form-control" />
-    </div>
-    </div>
-    <div class="mb-3">
-        <lable for="country" class="form-label">country</lable>
-    <input name="listing[country]" placeholder="India" type="text" class="form-control" />
-    </div>
-    
-    <button class="btn btn-dark add-btn mt-3">add</button>
-    </form>
-    </div>
-    </div>
-</body>
+    </body>

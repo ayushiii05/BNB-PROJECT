@@ -1,0 +1,50 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="row mt-3">
+        <div class="col-6 offset-3">
+            <div class="card listing-card">
+                <div class="card-body">
+                    <h3 class="card-title text-center text-success"><i class="fa-solid fa-circle-check"></i> Booking
+                        Confirmed!</h3>
+                    <hr>
+                    <h5 class="card-title">
+                        <%= listing.title %>
+                    </h5>
+                    <p class="card-text">
+                        <b>Location:</b>
+                        <%= listing.location %>, <%= listing.country %>
+                    </p>
+                    <hr>
+                    <h5>Booking Details</h5>
+                    <p><b>Name:</b>
+                        <%= booking.name %>
+                    </p>
+                    <p><b>Email:</b>
+                        <%= booking.email %>
+                    </p>
+                    <p><b>Phone:</b>
+                        <%= booking.phone %>
+                    </p>
+                    <div class="row">
+                        <div class="col-6">
+                            <p><b>Check-in:</b>
+                                <%= new Date(booking.checkIn).toDateString() %>
+                            </p>
+                        </div>
+                        <div class="col-6">
+                            <p><b>Check-out:</b>
+                                <%= new Date(booking.checkOut).toDateString() %>
+                            </p>
+                        </div>
+                    </div>
+                    <p><b>Guests:</b>
+                        <%= booking.guests %>
+                    </p>
+
+                    <hr>
+                    <div class="text-center">
+                        <a href="/listings" class="btn btn-dark">Back to Listings</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
